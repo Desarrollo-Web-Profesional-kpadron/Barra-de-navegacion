@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import navbarLinks from '../data/data';
 import { CiSearch } from "react-icons/ci";
 import { ImBooks } from "react-icons/im";
 import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
 import MenuResponsivo from "./MenuResponsivo";
+import Login from '../pages/Login';
 
 const Navbar = () => {
   const [abierto, setAbierto] = useState(false);
@@ -15,7 +17,7 @@ const Navbar = () => {
         <MenuResponsivo open={abierto} navbarLinks={navbarLinks} />
 
         <div className="container flex justify-between font-bold items-center py-8">
-          
+
           {/* Logo */}
           <div className="text-2xl flex items-center gap-2 uppercase">
             <ImBooks />
@@ -49,9 +51,11 @@ const Navbar = () => {
               <PiShoppingCartLight />
             </button>
 
-            <button className="hover:bg-primary font-semibold rounded-md text-white bg-secondary px-4 py-2 duration-300 border-primary hidden md:block">
-              Ingresar
-            </button>
+            <Link to="/login">
+              <button className="hover:bg-primary font-semibold rounded-md text-white bg-secondary px-4 py-2 duration-300 border-primary hidden md:block">
+                Ingresar
+              </button>
+            </Link>
           </div>
 
           {/* Menú hamburguesa */}
